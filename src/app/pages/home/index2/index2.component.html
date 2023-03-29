@@ -1,0 +1,409 @@
+<!-- first section of index start -->
+<div class="advantages-div pt-1">
+    <div class="container">
+        <div class="row py-3">
+            <div class="col-6 col-xl-2 col-lg-3 bordernew text-center">
+                <img src="assets/images/icons/express-delivery.png" class="img-fluid">
+                <div class="advantages-text">
+                    <p>Fast Shipping</p>
+                </div>
+            </div>
+            <div class="col-6 col-xl-2 col-lg-3 bordernew text-center">
+                <img src="assets/images/icons/credit-card.png" class="img-fluid">
+                <div class="advantages-text">
+                    <p>Secure Payments</p>
+                </div>
+            </div>
+            <div class="col-6 col-xl-2 col-lg-3 bordernew text-center">
+                <img src="assets/images/icons/reward.png" class="img-fluid">
+                <div class="advantages-text">
+                    <p>Get Rewards</p>
+                </div>
+            </div>
+            <div class="col-6 col-xl-2 col-lg-3 bordernew text-center">
+                <img src="assets/images/icons/24-hours.png" class="img-fluid">
+                <div class="advantages-text">
+                    <p>24/7 amazing services</p>
+                </div>
+            </div>
+            <div class="col-6 col-xl-2 col-lg-3 bordernew text-center">
+                <img src="assets/images/icons/replacement.png" class="img-fluid">
+                <div class="advantages-text">
+                    <p>FREE 7 Days Replacement</p>
+                </div>
+            </div>
+            <div class="col-6 col-xl-2 col-lg-3 bordernew-last text-center">
+                <img src="assets/images/icons/warranty-period.png" class="img-fluid">
+                <div class="advantages-text">
+                    <p>1 Year Warranty</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- first section of index end -->
+
+<!-- home page main single slide slider start -->
+<div class="homeslider pt-sm-3">
+    <div class="p-0">
+        <ngb-carousel>
+            <ng-template ngbSlide>
+                <div class="homeslider-main one">
+                    <div class="extra">
+                        <span>TWS EARBUDS</span>
+                        <h1 class="animate__animated animate__fadeInDown animate__delay-1s animate__faster">MODERN WORK
+                            <br /> DESK ESSENTIAL
+                        </h1>
+                        <a href="#"
+                            class="animate__animated animate__bounceIn animate__delay-2s animate__faster btn shop-white-btn mt-3">
+                            Shop now
+                            <span>Shop now</span>
+                        </a>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <div class="homeslider-main two">
+                    <div class="extra">
+                        <span>TWS EARBUDS</span>
+                        <h1 class="animate__animated animate__fadeInDown animate__delay-1s animate__faster">MODERN WORK
+                            <br /> DESK ESSENTIAL
+                        </h1>
+                        <a href="#"
+                            class="animate__animated animate__bounceIn animate__delay-2s animate__faster btn shop-white-btn mt-3">
+                            From Rs.599
+                            <span>From Rs.599</span>
+                        </a>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <div class="homeslider-main three">
+                    <div class="extra">
+                        <span>TWS EARBUDS</span>
+                        <h1 class="animate__animated animate__fadeInDown animate__delay-1s animate__faster">MODERN WORK
+                            <br /> DESK ESSENTIAL
+                        </h1>
+                        <a href="#"
+                            class="animate__animated animate__bounceIn animate__delay-2s animate__faster btn shop-white-btn mt-3">
+                            Just Rs.3299 | Shop Now
+                            <span>Just Rs.3299 | Shop Now</span>
+                        </a>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+</div>
+<!-- home page main single slide slider end -->
+
+<!-- shop by category slider start -->
+<!-- <div class="shop-by-category py-5">
+    <div class="container">
+        <div class="heading">
+            <p class="heading-sub"> <i class="fa-solid fa-tags"></i> Categories</p>
+            <h2>Shop By Categories</h2>
+        </div>
+        <ngx-slick-carousel class="carousel pt-3" #slickModal="slick-carousel" [config]="slideConfig">
+            <div ngxSlickItem *ngFor="let image of images" class="slide">
+                <div class="category-slider">
+                    <div class="category-with-image">
+                        <img src="{{ image.img }}" class="img-fluid image-cate">
+                        <div class="category-products">
+                            <span>155 Products</span>
+                        </div>
+                    </div>
+                    <div class="category-info pb-5 pt-3">
+                        <h2>{{image.catname}}</h2>
+                    </div>
+                    <a href="#">See Collecton <i class="fa-solid fa-arrow-right-long"></i></a>
+                    <img src="{{ image.imgback }}" class="image-back">
+                </div>
+            </div>
+        </ngx-slick-carousel>
+    </div>
+</div> -->
+<!-- shop by category slider end -->
+
+<!-- new arrvival serction start -->
+<div class="new-arrival px-sm-5 pt-5">
+    <div class="container-fluid px-sm-5">
+        <div class="new-arrival-heading">
+            <div class="heading">
+                <p class="heading-sub"> <i class="fa-solid fa-basket-shopping"></i> Categories</p>
+                <h2>New Arrival</h2>
+            </div>
+            <h5><a href="#">View More <i class="fa-solid fa-arrow-right-long"></i> </a></h5>
+        </div>
+        <div class="row justify-content-center pt-3 pb-5" *ngIf="products" [products]="products" [loaded]="loaded">
+            <!-- <div class="col-lg-3 col-md-4 col-sm-6 p-0" [options]="sliderOption" *ngIf="!loaded else loadedBlock">
+                <div class="skel-pro" *ngFor="let i of [1,2,3,4]">
+                </div>
+            </div> -->
+            <div class="col-lg-3 col-md-4 col-sm-6 p-0" *ngFor="let productinfo of products | slice: 0 : 4">
+                <div class="product-card">
+                    <div class="product-card-image">
+                        <a [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">
+                            <img src="{{ productinfo.image }}" class="img-fluid">
+                            <img src="{{ productinfo.productImage[4].url }}" class="productcard-image-two img-fluid">
+                        </a>
+                        <div class="addto-cart">
+                            <a href="#" class="product-card-addto-cart">
+                                <span><i class="fa-solid fa-plus"></i> Add To Cart</span>
+                            </a>
+                        </div>
+                        <div class="wishlist-view">
+                            <!-- <a href="javascript:;" class="btn-product-icon btn-wishlist btn-expandable"
+                                [class.added-to-wishlist]="isInWishlist()" (click)="addToWishlist($event)">
+                                <span>{{ isInWishlist() ? 'go' : 'add' }} to Wishlist</span>
+                            </a> -->
+                            <a href="#">
+                                <i class="fa-regular fa-heart"></i>
+                            </a>
+                            <a [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">
+                                <i class="fa-regular fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-card-info">
+                        <p>{{ productinfo.category.name }}</p>
+                        <a
+                            [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">{{productinfo.name}}</a>
+                        <span class="first-price"> Rs. {{ productinfo.defaultPrice }} </span> <span
+                            class="second-price"> Rs. {{ productinfo.mrp }} </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- new arrvival serction end -->
+
+
+<!-- bannersction start -->
+<div class="banner my-5">
+    <img src="assets/images/banners/Banner.jpg">
+</div>
+<!-- bannersction end -->
+
+<!-- trending products with product card section start -->
+<div class="trending-products">
+    <div class="container">
+        <div class="heading">
+            <p class="heading-sub"> <i class="fa-solid fa-wand-magic-sparkles"></i> Trending</p>
+            <h2 class="d-inline-block mr-2">Trending Products</h2>
+            <img src="assets/images/icons/fire.png">
+        </div>
+        <div class="change-tab">
+            <ul>
+                <li><a href="#" class="active">HDD</a></li>
+                <li><a href="#">LAPTOP RAM</a></li>
+                <li><a href="#">GEONIX SSD</a></li>
+                <li><a href="#">LAPTOP HHD</a></li>
+            </ul>
+        </div>
+        <div class="row justify-content-center py-3 py-5" *ngIf="products" [products]="products" [loaded]="loaded">
+            <div class="col-md-4 col-sm-6 col-lg-3" *ngFor="let productinfo of products | slice: 0 : 4">
+                <div class="product-card">
+                    <div class="product-card-image">
+                        <a [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">
+                            <img src="{{ productinfo.image }}" class="img-fluid">
+                            <img src="{{ productinfo.productImage[4].url }}" class="productcard-image-two img-fluid">
+                        </a>
+                        <div class="addto-cart">
+                            <a href="#" class="product-card-addto-cart">
+                                <span><i class="fa-solid fa-plus"></i> Add To Cart</span>
+                            </a>
+                        </div>
+                        <div class="wishlist-view">
+                            <!-- <a href="javascript:;" class="btn-product-icon btn-wishlist btn-expandable"
+                                [class.added-to-wishlist]="isInWishlist()" (click)="addToWishlist($event)">
+                                <span>{{ isInWishlist() ? 'go' : 'add' }} to Wishlist</span>
+                            </a> -->
+                            <a href="#">
+                                <i class="fa-regular fa-heart"></i>
+                            </a>
+                            <a [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">
+                                <i class="fa-regular fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-card-info">
+                        <p>{{ productinfo.category.name }}</p>
+                        <a
+                            [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">{{productinfo.name}}</a>
+                        <span class="first-price"> Rs. {{ productinfo.defaultPrice }} </span> <span
+                            class="second-price"> Rs. {{ productinfo.mrp }} </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- trending products with product card section end -->
+
+<!-- top selling products section strat -->
+<div class="top-selling">
+    <div class="container-fluid px-sm-5">
+        <div class="heading">
+            <p class="heading-sub"> <i class="fa-solid fa-star"></i> Most Sold</p>
+            <h2 class="d-inline-block mr-2">Top Selling Products</h2>
+        </div>
+        <div class="change-tab">
+            <ul class="">
+                <li><a href="#" class="active">GEONIX SSD</a></li>
+                <li><a href="#">HHD</a></li>
+            </ul>
+        </div>
+        <div class="row justify-content-center py-3 py-5" *ngIf="products" [products]="products" [loaded]="loaded">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" [product]="product"
+                *ngFor="let productinfo of products | slice: 0 : 6">
+                <div class="product-card">
+                    <div class="product-card-image">
+                        <a [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">
+                            <img src="{{ productinfo.image }}" class="img-fluid">
+                            <img src="{{ productinfo.productImage[4].url }}" class="productcard-image-two img-fluid">
+                        </a>
+                        <div class="addto-cart">
+                            <a href="#" class="product-card-addto-cart">
+                                <span><i class="fa-solid fa-plus"></i> Add To Cart</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-card-info">
+                        <p>{{ productinfo.category.name }}</p>
+                        <a
+                            [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">{{productinfo.name}}</a>
+                        <span class="first-price"> Rs. {{ productinfo.defaultPrice }} </span> <span
+                            class="second-price"> Rs. {{ productinfo.mrp }} </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- top selling products section end -->
+
+<!-- recommendation for you start -->
+<div class="recommendation">
+    <div class="container">
+        <div class="heading">
+            <p class="heading-sub"> <i class="fa-solid fa-face-grin-stars"></i> Categories</p>
+            <h2>Recommendation For You</h2>
+        </div>
+        <!-- <div class="row" *ngIf="!loaded else elseBlock">
+            <div class="col-6 col-md-4 col-lg-3" *ngFor="let item of [1,2,3,4,5,6,7,8]">
+                <div class="skel-pro"></div>
+            </div>
+        </div> -->
+        <div class="extra" #elseBlock>
+            <div class="row" *ngIf="products" [products]="products" [loaded]="loaded">
+                <div class="col-lg-4 col-sm-6" *ngFor="let productinfo of products | slice: 0 : 9">
+                    <div class="product-card-two">
+                        <div class="product-card-two-image">
+                            <img src="{{ productinfo.productImage[0].url }}" class="img-fluid">
+                        </div>
+                        <div class="product-card-two-info">
+                            <div class="rating-icons">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                            </div>
+                            <a href="#">{{ productinfo.name }}</a>
+                            <span>₹ {{ productinfo.defaultPrice }}</span>
+                        </div>
+                        <div class="product-card-two-addtocart">
+                            <img src="assets/images/icons/shopping-cart.png" class="img-fluid">
+                            <img src="assets/images/icons/heart.png" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- recommendation for you start -->
+
+<!-- our blogs section start -->
+<div class="blogs py-5">
+    <div class="container">
+        <div class="heading">
+            <p class="heading-sub"> <i class="fa-solid fa-note-sticky"></i> Recent Story</p>
+            <h2>From The Blog</h2>
+        </div>
+        <div class="row justify-content-center pt-3">
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-main">
+                    <div class="blog-image">
+                        <img src="assets/images/blogimages/1.jpg" class="img-fluid">
+                    </div>
+                    <div class="blog-info">
+                        <h4>25 January 2018</h4>
+                        <p>Lorem ipsum dolor sit consectetur adipiscing elit,</p>
+                        <h6> by:John Dio , 2 Comment</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-main">
+                    <div class="blog-image">
+                        <img src="assets/images/blogimages/2.jpg" class="img-fluid">
+                    </div>
+                    <div class="blog-info">
+                        <h4>25 January 2018</h4>
+                        <p>Lorem ipsum dolor sit consectetur adipiscing elit,</p>
+                        <h6> by:John Dio , 2 Comment</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-main">
+                    <div class="blog-image">
+                        <img src="assets/images/blogimages/3.jpg" class="img-fluid">
+                    </div>
+                    <div class="blog-info">
+                        <h4>25 January 2018</h4>
+                        <p>Lorem ipsum dolor sit consectetur adipiscing elit,</p>
+                        <h6> by:John Dio , 2 Comment</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- our blogs section end -->
+
+<!-- follow us on insta section start -->
+
+<div class="intsa-posts pt-5">
+    <div>
+        <div class="heading">
+            <p class="heading-sub"> <i class="fa-brands fa-instagram"></i> Follow Know</p>
+            <h2>Follow Us On Instagram</h2>
+        </div>
+        <div class="row pt-4">
+            <div class="col-2 p-0">
+                <img src="assets/images/intsapost/one.jpg" class="img-fluid">
+            </div>
+            <div class="col-2 p-0">
+                <img src="assets/images/intsapost/two.jpg" class="img-fluid">
+            </div>
+            <div class="col-2 p-0">
+                <img src="assets/images/intsapost/three.jpg" class="img-fluid">
+            </div>
+            <div class="col-2 p-0">
+                <img src="assets/images/intsapost/four.jpg" class="img-fluid">
+            </div>
+            <div class="col-2 p-0">
+                <img src="assets/images/intsapost/five.jpg" class="img-fluid">
+            </div>
+            <div class="col-2 p-0">
+                <img src="assets/images/intsapost/six.jpg" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- follow us on insta section end -->

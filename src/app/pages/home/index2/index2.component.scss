@@ -1,0 +1,318 @@
+
+
+// first div
+.advantages-div {
+    .row {
+        background-color: #e8edf0;
+
+        .bordernew,.bordernew-last {
+            display: flex;
+            align-items: center;
+            position: relative;
+            justify-content: center;
+
+            .advantages-text {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                p {
+                    margin: 0;
+                    font-size: 17px;
+                    font-weight: 500;
+                    padding: 10px;
+                    line-height: 18px;
+                    text-align: left;
+                }
+            }
+            
+            img {
+                max-width: 30%;
+                padding: 5px;
+            }
+        }
+
+        .bordernew::after {
+            content: '';
+            width: 2px;
+            height: 70%;
+            background-color: #525151;
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            transform: translatey(-50%);
+        }
+    }
+}
+
+// home page main slider
+
+.homeslider {
+    .homeslider-main {
+        min-height: 42vw;
+        display: flex;
+        align-items: center;
+        padding-left: 10vw;
+        color: white;
+
+        .extra {
+
+            span {
+                font-weight: 500;
+            }
+
+            h1 {
+                font-size: 3.5vw;
+                color: white;
+            }
+        }
+    }
+
+    .one {
+        background-image: url('https://cdn.shopify.com/s/files/1/0641/2907/3385/files/Zeb-k5000mw-main_banner.jpg?v=1665818400&width=2000');
+        background-size: cover;
+    }
+
+    .two {
+        background-image: url('https://cdn.shopify.com/s/files/1/0641/2907/3385/files/Zeb-Juke_bar_9500-main_banner-big.jpg?v=1666343319&width=2000');
+        background-size: cover;
+    }
+
+    .three {
+        background-image: url('https://cdn.shopify.com/s/files/1/0641/2907/3385/files/Crusher_main_banner_2160_X_1080.jpg?v=1673069379&width=2000');
+        background-size: cover;
+    }
+}
+
+// shop by category slider
+
+.shop-by-category {
+    overflow: hidden;
+
+    .category-slider {
+        background-color: white;
+        margin: 10px;
+        border-radius: 10px;
+        padding: 20px;
+        border: 1px solid lightgray;
+        position: relative;
+        overflow: hidden;
+
+        .category-info {
+            position: relative;
+            z-index: 11;
+        }
+
+        img.image-cate {
+            border: 1px solid lightgray;
+            border-radius: 50%;
+            max-width: 90px;
+            padding: 5px;
+            background-color: #f7f7f7;
+        }
+
+        img.image-back {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        a {
+            color: #323131;
+            text-decoration: none;
+            font-weight: 700;
+            z-index: 11;
+            position: relative;
+        }
+        
+        .category-with-image {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}
+
+// new arrival section 
+
+.new-arrival {
+
+    .new-arrival-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+}
+
+// banner for home page offerce
+
+.banner {
+    img {
+        width: 100%;
+    }
+}
+
+// trending products
+
+.trending-products {
+    .heading {
+        text-align: center;
+
+        img {
+            max-width: 50px;
+            vertical-align: top;
+            display: inline-block;
+        }
+    }
+
+    .change-tab {
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            padding-top: 20px;
+
+            li {
+                display: inline-block;
+                margin-bottom: 25px;
+
+                a {
+                    text-decoration: none;
+                    padding: 15px;
+                    color: grey;
+                    font-family: 'Maven Pro', sans-serif;
+                    border-bottom: 2px solid lightgray;
+                    font-size: 16px;
+                }
+
+                a.active {
+                    border-bottom: 3px solid #2d406d;
+                    color: #2d406d;
+                }
+            }
+        }
+    }
+
+}
+
+// top selling product 
+.top-selling {
+    .heading {
+        text-align: center;
+
+        img {
+            max-width: 50px;
+            vertical-align: top;
+        }
+    }
+
+    .change-tab {
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            padding-top: 20px;
+
+            li {
+                display: inline-block;
+                margin-bottom: 25px;
+
+                a {
+                    text-decoration: none;
+                    padding: 15px;
+                    color: grey;
+                    font-family: 'Maven Pro', sans-serif;
+                    border-bottom: 2px solid lightgray;
+                    font-size: 16px;
+                }
+
+                a.active {
+                    border-bottom: 3px solid #2d406d;
+                    color: #2d406d;
+                }
+            }
+        }
+    }
+}
+
+// recommentaion section style
+
+.recommendation {
+    padding: 0px 10px;
+
+    .heading {
+        text-align: center;
+    }
+
+    .container {
+        background-color: #f7f7f9;
+        padding: 50px;
+        border-radius: 30px;
+    }
+}
+
+// blog section style
+
+.blogs {
+    .heading {
+        text-align: center;
+    }
+}
+
+// follow us on insta section
+
+.intsa-posts {
+    .heading {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 576px) {
+
+    // first section mobile style
+
+    .advantages-div {
+        display: none;
+        .row {
+    
+            .bordernew::after {
+                display: none;
+            }
+        }
+    }
+
+    .recommendation {
+        .container {
+            padding: 10vw 5vw;
+        }
+    }
+
+    .homeslider {
+        .homeslider-main {
+            min-height: 70vh;
+            box-shadow: inset 2000px 0px rgba(0, 0, 0, 0.212);
+
+            h1 {
+                font-size: 10vw !important;
+                color: white;
+            }
+        }
+        .one {
+            background-image: url('https://cdn.shopify.com/s/files/1/0641/2907/3385/files/Zeb-Sound_bomb_9_1000_X_1440.jpg?v=1673068985&width=1200');
+        }
+        .two {
+            background-image: url('https://cdn.shopify.com/s/files/1/0641/2907/3385/files/Iconic_ULtra_Main_anner_1000_X_1440_Mobile.jpg?v=1675837592&width=1200');
+        }
+        .three {
+            background-image: url('https://cdn.shopify.com/s/files/1/0641/2907/3385/files/Crusher_banner-mobiler_1000_X_1440.jpg?v=1673069426&width=1200');
+        }
+    }
+
+}

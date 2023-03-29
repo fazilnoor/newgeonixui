@@ -1,0 +1,522 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import './scss/plugins/owl-carousel/owl.carousel.scss';
+@import './scss/style.scss';
+
+// google font import cdn link
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+
+
+body {
+    visibility: visible;
+    opacity: 1;
+    font-family: 'Poppins', sans-serif !important;
+    // overflow-x: hidden;
+}
+
+// html {
+//     overflow-x: hidden;
+// }
+html,
+body {
+    height: 100%;
+}
+
+// html {
+//     overflow: hidden;
+// }
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+// <!-- my style changes -->
+
+// html {
+//     overflow: hidden;
+// }
+
+.owl-full {
+    .owl-nav {
+        display: none !important;
+    }
+}
+
+.dropdown-toggle:after {
+    content: "";
+    display: none !important;
+}
+
+.header-intro-clearance {
+    .header-bottom {
+        .container:after {
+            content: none !important;
+        }
+    }
+}
+
+.header-intro-clearance {
+    .header-bottom {
+        .container:before {
+            content: none;
+        }
+    }
+}
+
+.menu.sf-arrows {
+    .sf-with-ul:after {
+        content: none;
+    }
+}
+
+.dropdown-toggle:hover {
+    color: #fff;
+    background-color: transparent !important;
+}
+
+.dropdown.category-dropdown:hover .dropdown-toggle {
+    background-color: transparent !important;
+}
+
+.category-dropdown,
+.category-dropdown {
+    .dropdown-toggle {
+        display: flex;
+        align-self: stretch;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.modalon-load {
+    .modal-dialog {
+        background-color: white !important;
+        padding: 50px !important;
+        top: 20vh !important;
+    }
+}
+
+.header-3 {
+
+    .mobile-menu-toggler {
+        color: #14244b !important;
+    }
+
+    .header-middle {
+        .header-right {
+            p {
+                color: #14244b;
+            }
+
+            i {
+                color: #14244b;
+            }
+        }
+    }
+
+    .header-bottom {
+        .menu>li>a:before {
+            bottom: 0;
+            top: unset;
+            background-color: white;
+            height: 2px;
+        }
+    }
+}
+
+.header-search {
+    .header-search-wrapper {
+        border-radius: 30px !important;
+        border-width: 2px !important;
+        overflow: hidden;
+    }
+}
+
+.header-search {
+    .search-wrapper-wide {
+        width: auto !important;
+    }
+}
+
+.header-center.d-none.d-lg-flex {
+    max-width: 35vw;
+}
+
+@media screen and (max-width: 992px) {
+    .header-3 {
+        .dropdown.category-dropdown {
+            display: none !important;
+        }
+    }
+}
+
+// all style variables are here
+
+$bluecolor-dark: #2d406d;
+
+
+
+// white button with black hover effect start
+
+.shop-white-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+    position: relative;
+    overflow: hidden;
+    color: transparent;
+    background-color: white;
+
+    span {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        color: black;
+    }
+}
+
+.shop-white-btn:after {
+    content: '';
+    width: 0px;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    transition: all 0.5s;
+    // border-top-left-radius: 50%;
+}
+
+.shop-white-btn:hover::after {
+    width: 100%;
+    height: 100%;
+}
+
+.shop-white-btn:hover {
+    background-color: white;
+
+    span {
+        color: white;
+    }
+}
+
+// white button with black hover effect end
+
+// heading with subheading and icon start
+
+.heading {
+
+    i {
+        color: white;
+        background-color: $bluecolor-dark;
+        padding: 5px;
+        border-radius: 50%;
+    }
+
+    p {
+        color: $bluecolor-dark;
+        font-weight: 700;
+    }
+}
+
+// heading with subheading and icon end
+
+// product card section with all the effects start
+
+.product-card {
+    position: relative;
+    margin: 15px;
+
+    img {
+        width: 100%;
+    }
+
+    .product-card-image {
+        position: relative;
+        overflow: hidden;
+
+        .wishlist-view {
+            position: absolute;
+            top: 0;
+            right: -50px;
+            z-index: 3;
+            transition: all 0.5s;
+            opacity: 0;
+
+            i {
+                display: block;
+                padding: 10px;
+                background-color: white;
+                margin: 10px;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+        }
+
+        .addto-cart {
+            position: absolute;
+            bottom: -70px;
+            width: 100%;
+            padding: 15px;
+            overflow: hidden;
+            opacity: 0;
+            transition: 0.5s;
+            z-index: 3;
+
+            a.product-card-addto-cart {
+                background-color: white;
+                color: black;
+                text-decoration: none;
+                font-weight: 500;
+                text-align: center;
+                border: 1px solid grey;
+                padding: 15px;
+                display: inline-block;
+                width: 100%;
+            }
+        }
+
+        img.productcard-image-two {
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: all 0.5s;
+        }
+
+        img.productcard-image-two:hover {
+            opacity: 1;
+        }
+    }
+
+    .product-card-image:hover .addto-cart {
+        bottom: 0px;
+        opacity: 1;
+    }
+
+    .product-card-image:hover .wishlist-view {
+        right: 0;
+        opacity: 1;
+    }
+
+    .product-card-info {
+        a {
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            display: block;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 15px 0px;
+            color: grey;
+        }
+
+        span.first-price {
+            font-size: 18px;
+            font-weight: 600;
+            color: #223666;
+        }
+
+        span.second-price {
+            color: gray;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: line-through;
+        }
+    }
+}
+
+
+// product card section with all the effects end
+
+// product cart style type twp start here
+
+.product-card-two {
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0px 15px;
+    background-color: white;
+    margin: 10px 0px;
+    min-height: 145px;
+
+    .product-card-two-image {
+        background-color: #f7f7f7;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100px;
+        max-height: 100px;
+        overflow: hidden;
+    }
+
+    .product-card-two-info {
+        padding: 10px;
+        width: 50%;
+
+        a {
+            width: 100%;
+            color: grey;
+            text-decoration: none;
+            display: block;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 0px;
+        }
+
+        span {}
+
+        .rating-icons {
+            i {
+                color: #ffa800;
+            }
+        }
+    }
+
+    .product-card-two-addtocart {
+        text-align: center;
+
+        img {
+            max-width: 40px;
+            /* background-color: lightgrey; */
+            padding: 10px;
+            margin: 10px 0px;
+            border-radius: 10px;
+            border: 1px solid lightgray;
+        }
+    }
+}
+
+
+// blog card style
+
+.blog-main {
+
+    .blog-image {}
+
+    .blog-info {
+        text-align: center;
+        padding: 15px;
+
+        h4 {
+            color: #223666;
+        }
+
+        p {
+            font-size: 23px;
+            color: black;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        p::after {
+            content: "";
+            position: absolute;
+            width: 50%;
+            height: 5px;
+            background-color: #2d406d;
+            bottom: 0;
+            left: 50%;
+            transform: translatex(-50%);
+        }
+
+        h6 {
+            color: gray;
+            margin-top: 10px;
+        }
+    }
+}
+
+// mobile menu drodown menu style
+
+.paneldropdown {
+    .mat-expansion-panel-header {
+        padding: 10px 0px;
+        border-bottom: 1px solid lightgray;
+        border-radius: 0px;
+        font-weight: 500;
+    }
+
+    .mat-expansion-panel-body {
+        padding: 0px;
+
+        .mobile-menu-categories {
+            padding: 0px 10px;
+
+            .mobile-dropdown-category-main {
+                background-color: lightgray;
+                margin: 5px;
+                border-radius: 5px;
+                padding: 5px;
+            }
+
+            a {
+                font-size: 3vw;
+                text-align: center;
+                width: 100% !important;
+                display: block;
+                padding-bottom: 10px;
+                font-weight: 500;
+            }
+        }
+
+        .mobile-menu-categories.more {
+            li {
+                border: none !important;
+
+                a {
+                    font-size: 4vw;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+
+// home banner slider style start
+
+.homeslider {
+    .carousel-control-prev {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 8%;
+        color: #fff;
+        text-align: center;
+        opacity: .5;
+        transition: opacity .15s ease;
+    }
+
+    .carousel-control-next {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 8%;
+        color: #fff;
+        text-align: center;
+        opacity: .5;
+        transition: opacity .15s ease;
+    }
+}
