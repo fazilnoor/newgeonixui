@@ -11,6 +11,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { WishlistService } from 'src/app/shared/services/wishlist.service';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/shared/services/cart.service';
+
 
 
 declare var $: any;
@@ -23,7 +25,7 @@ declare var $: any;
 export class Index2Component implements OnInit {
 
 	@Input() product: any;
-	@Input() loaded = false;
+	@Input() topselling:any;
 
 	// product data print onscreen
 
@@ -31,14 +33,15 @@ export class Index2Component implements OnInit {
 	emailForm?: any
 	categoryList: any = []
 	categorydata: any = []
-
 	products = [];
 	getoffer: any
 	posts = [];
-	// loaded = false;
+	loaded = false;
 	introSlider = introSlider;
 	brandSlider = brandSlider;
 	testiSlider = testiSlider;
+	topsellingproductsdata: any []
+	wishlistvar:boolean = false
 	loader: boolean = false;
 
 
@@ -49,6 +52,7 @@ export class Index2Component implements OnInit {
 		private category: CategoryService,
 		private wishlistService: WishlistService,
 		private router: Router,
+        private cartService: CartService,
 		private toaster: ToastrService) {
 		this.emailForm = new FormGroup({
 			email: new FormControl("", [Validators.required, Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$")])
@@ -61,6 +65,7 @@ export class Index2Component implements OnInit {
 		this.offerList()
 		this.getlist()
 		this.getproduct()
+		this.topsellingproducts('Geonix SSD')
 	}
 
 	offerList() {
@@ -165,6 +170,7 @@ export class Index2Component implements OnInit {
 			catname: 'RISER CARD'
 		}
 	];
+
 	slideConfig = {
 		"slidesToShow": 3,
 		"slidesToScroll": 1,
@@ -202,26 +208,40 @@ export class Index2Component implements OnInit {
 	}
 
 	// toggle nav bar menu
+	// wishlist functionality
 
-	// addToWishlist(event: Event) {
-	// 	event.preventDefault();
+	addToWishlist(event: Event) {
+		// event.preventDefault();
+		this.product = event;
+		if (this.isInWishlist()) {
+			this.router.navigate(['/shop/wishlist']);
+		} else {
+			this.wishlistService.addToWishList(this.product);
+		}
+	}
 
-	// 	if (this.isInWishlist()) {
-	// 		this.router.navigate(['/shop/wishlist']);
-	// 	} else {
-	// 		this.wishlistService.addToWishList(this.product);
-	// 	}
-	// }
+	isInWishlist() {
+			return this.wishlistService.isInWishlist(this.product);
+	}
 
-	// isInWishlist() {
-	// 	if (this.product) {
-	// 		return this.wishlistService.isInWishlist(this.product);
-	// 	} else {
-	// 		return false
-	// 	}
-	// }
+	wishliststyle(){
+		this.wishlistvar = true
+	  }
 
-	categories = [ ['Geonix SSD'],['HDD – Hard Disk Drive']];
-	titles = ['All', 'Accessories', 'Cameras & Camcorders', 'Computers & Tablets', 'Entertainment']
-	  sliderOption = trendySlider;
+	//   add to cart functionality
+
+	addToCart(event: Event) {
+        // event.preventDefault();
+		this.product = event;
+        this.cartService.addToCart(this.product);
+	}
+
+	topsellingproducts(event: string) {
+		this.topselling = event
+		console.log('try console my tab function', this.topselling);
+		this.topsellingproductsdata = this.products.filter(element => element.category.name == this.topselling)
+		console.log(this.products)
+		console.log('console filter data top selling products' ,this.topsellingproductsdata)
+	}
+	
 }

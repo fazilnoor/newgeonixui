@@ -133,48 +133,57 @@
                 <p class="heading-sub"> <i class="fa-solid fa-basket-shopping"></i> Categories</p>
                 <h2>New Arrival</h2>
             </div>
-            <h5><a href="#">View More <i class="fa-solid fa-arrow-right-long"></i> </a></h5>
+            <h5><a routerLink="/shop/sidebar/2cols" [queryParams]="{category: 6,'page':1}">View More <i
+                        class="fa-solid fa-arrow-right-long"></i> </a></h5>
         </div>
-        <div class="row justify-content-center pt-3 pb-5" *ngIf="products" [products]="products" [loaded]="loaded">
-            <!-- <div class="col-lg-3 col-md-4 col-sm-6 p-0" [options]="sliderOption" *ngIf="!loaded else loadedBlock">
-                <div class="skel-pro" *ngFor="let i of [1,2,3,4]">
-                </div>
-            </div> -->
-            <div class="col-lg-3 col-md-4 col-sm-6 p-0" *ngFor="let productinfo of products | slice: 0 : 4">
-                <div class="product-card">
-                    <div class="product-card-image">
-                        <a [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">
-                            <img src="{{ productinfo.image }}" class="img-fluid">
-                            <img src="{{ productinfo.productImage[4].url }}" class="productcard-image-two img-fluid">
-                        </a>
-                        <div class="addto-cart">
-                            <a href="#" class="product-card-addto-cart">
-                                <span><i class="fa-solid fa-plus"></i> Add To Cart</span>
-                            </a>
-                        </div>
-                        <div class="wishlist-view">
-                            <!-- <a href="javascript:;" class="btn-product-icon btn-wishlist btn-expandable"
-                                [class.added-to-wishlist]="isInWishlist()" (click)="addToWishlist($event)">
-                                <span>{{ isInWishlist() ? 'go' : 'add' }} to Wishlist</span>
-                            </a> -->
-                            <a href="#">
-                                <i class="fa-regular fa-heart"></i>
-                            </a>
-                            <a [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">
-                                <i class="fa-regular fa-eye"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-card-info">
-                        <p>{{ productinfo.category.name }}</p>
-                        <a
-                            [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">{{productinfo.name}}</a>
-                        <span class="first-price"> Rs. {{ productinfo.defaultPrice }} </span> <span
-                            class="second-price"> Rs. {{ productinfo.mrp }} </span>
-                    </div>
+        <div class="row justify-content-center pt-3 pb-5" *ngIf="!loaded else elseBlocknewarrival">
+            <div class="col-lg-3 col-md-4 col-sm-6 p-0" *ngFor="let item of [1,2,3,4]">
+                <div class="skel-pro">
+                    <img src="assets/images/loader.gif" class="img-fluid">
                 </div>
             </div>
         </div>
+        <ng-template #elseBlocknewarrival>
+            <div class="row justify-content-center pt-3 pb-5" *ngIf="products" [products]="products" [loaded]="loaded">
+                <div class="col-lg-3 col-md-4 col-sm-6 p-0" *ngFor="let productinfo of products | slice: 0 : 4">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <a [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">
+                                <img src="{{ productinfo.image }}" class="img-fluid">
+                                <img src="assets/images/Website Info.jpeg" class="productcard-image-two img-fluid">
+                            </a>
+                            <div class="addto-cart">
+                                <a href="javascript:;" class="product-card-addto-cart" (click)="addToCart(productinfo)">
+                                    <span><i class="fa-solid fa-plus"></i> Add To Cart</span>
+                                </a>
+                            </div>
+                            <div class="wishlist-view">
+                                <a href="javascript:;" (click)="addToWishlist(productinfo)">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
+                                <a [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">
+                                    <i class="fa-regular fa-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-card-info">
+
+                            <div class="addtocart-mobile">
+                                <a href="javascript:;" class="addto-cart" (click)="addToCart(productinfo)">
+                                    <span><i class="fa-solid fa-plus"></i> Add To Cart</span>
+                                </a>
+                            </div>
+
+                            <p>{{ productinfo.category.name }}</p>
+                            <a
+                                [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">{{productinfo.name}}</a>
+                            <span class="first-price"> Rs. {{ productinfo.defaultPrice }} </span> <span
+                                class="second-price"> Rs. {{ productinfo.mrp }} </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
     </div>
 </div>
 <!-- new arrvival serction end -->
@@ -216,11 +225,7 @@
                             </a>
                         </div>
                         <div class="wishlist-view">
-                            <!-- <a href="javascript:;" class="btn-product-icon btn-wishlist btn-expandable"
-                                [class.added-to-wishlist]="isInWishlist()" (click)="addToWishlist($event)">
-                                <span>{{ isInWishlist() ? 'go' : 'add' }} to Wishlist</span>
-                            </a> -->
-                            <a href="#">
+                            <a href="javascript:;" (click)="addToWishlist(productinfo)">
                                 <i class="fa-regular fa-heart"></i>
                             </a>
                             <a [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">
@@ -250,15 +255,59 @@
             <h2 class="d-inline-block mr-2">Top Selling Products</h2>
         </div>
         <div class="change-tab">
-            <ul class="">
-                <li><a href="#" class="active">GEONIX SSD</a></li>
-                <li><a href="#">HHD</a></li>
+            <ul class="nav nav-pills nav-border-anim justify-content-center" role="tablist" tabClick>
+                <li>
+                    <a href="javascript:;" role="tab" (click)="topsellingproducts('Geonix SSD')" class="active">GEONIX SSD</a>
+                </li>
+                <li>
+                    <a href="javascript:;" role="tab" (click)="topsellingproducts('HDD – Hard Disk Drive')">HHD</a>
+                </li>
             </ul>
         </div>
-        <div class="row justify-content-center py-3 py-5" *ngIf="products" [products]="products" [loaded]="loaded">
-            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" [product]="product"
-                *ngFor="let productinfo of products | slice: 0 : 6">
-                <div class="product-card">
+        <!-- <ul ngbNav #nav="ngbNav">
+            <ng-template ngbNavContent>
+                <ng-template #elseBlock>
+                    <div class="row justify-content-center py-3 py-5" *ngIf="products" [products]="products"
+                        [loaded]="loaded">
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" [product]="product"
+                            *ngFor="let productinfo of products | slice: 0 : 6">
+                            <div class="product-card">
+                                <div class="product-card-image">
+                                    <a [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">
+                                        <img src="{{ productinfo.image }}" class="img-fluid">
+                                        <img src="{{ productinfo.productImage[4].url }}"
+                                            class="productcard-image-two img-fluid">
+                                    </a>
+                                    <div class="addto-cart">
+                                        <a href="#" class="product-card-addto-cart">
+                                            <span><i class="fa-solid fa-plus"></i> Add To Cart</span>
+                                        </a>
+                                    </div>
+                                    <div class="wishlist-view">
+                                        <a href="javascript:;" (click)="addToWishlist(productinfo)">
+                                            <i class="fa-regular fa-heart" [class.wishlistwhite]="isInWishlist()"></i>
+                                        </a>
+                                        <a [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="product-card-info">
+                                    <p>{{ productinfo.category.name }}</p>
+                                    <a
+                                        [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">{{productinfo.name}}</a>
+                                    <span class="first-price"> Rs. {{ productinfo.defaultPrice }} </span> <span
+                                        class="second-price"> Rs. {{ productinfo.mrp }} </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ng-template>
+        </ul> -->
+        <div class="row justify-content-center py-3 py-5">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" *ngFor="let productinfo of topsellingproductsdata | slice: 0 : 6">
+                <div class="product-card m-0">
                     <div class="product-card-image">
                         <a [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">
                             <img src="{{ productinfo.image }}" class="img-fluid">
@@ -267,6 +316,14 @@
                         <div class="addto-cart">
                             <a href="#" class="product-card-addto-cart">
                                 <span><i class="fa-solid fa-plus"></i> Add To Cart</span>
+                            </a>
+                        </div>
+                        <div class="wishlist-view">
+                            <a href="javascript:;" (click)="addToWishlist(productinfo)">
+                                <i class="fa-regular fa-heart"></i>
+                            </a>
+                            <a [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">
+                                <i class="fa-regular fa-eye"></i>
                             </a>
                         </div>
                     </div>
@@ -291,14 +348,17 @@
             <p class="heading-sub"> <i class="fa-solid fa-face-grin-stars"></i> Categories</p>
             <h2>Recommendation For You</h2>
         </div>
-        <!-- <div class="row" *ngIf="!loaded else elseBlock">
-            <div class="col-6 col-md-4 col-lg-3" *ngFor="let item of [1,2,3,4,5,6,7,8]">
-                <div class="skel-pro"></div>
+        <div class="row" *ngIf="!loaded else elseBlock">
+            <div class="col-lg-4 col-sm-6" *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
+                <div class="skel-pro recommendation">
+                    <img src="assets/images/loader.gif" class="img-fluid">
+                </div>
             </div>
-        </div> -->
-        <div class="extra" #elseBlock>
-            <div class="row" *ngIf="products" [products]="products" [loaded]="loaded">
-                <div class="col-lg-4 col-sm-6" *ngFor="let productinfo of products | slice: 0 : 9">
+        </div>
+        <ng-template #elseBlock>
+            <div class="row" *ngIf="products">
+                <div class="col-lg-4 col-sm-6" [products]="products"
+                    *ngFor="let productinfo of products | slice: 0 : 9">
                     <div class="product-card-two">
                         <div class="product-card-two-image">
                             <img src="{{ productinfo.productImage[0].url }}" class="img-fluid">
@@ -312,16 +372,16 @@
                                 <i class="fa-solid fa-star-half-stroke"></i>
                             </div>
                             <a href="#">{{ productinfo.name }}</a>
-                            <span>₹ {{ productinfo.defaultPrice }}</span>
+                            <span>Rs {{ productinfo.defaultPrice }}</span>
                         </div>
                         <div class="product-card-two-addtocart">
-                            <img src="assets/images/icons/shopping-cart.png" class="img-fluid">
-                            <img src="assets/images/icons/heart.png" class="img-fluid">
+                            <img src="assets/images/icons/shopping-cart.png" class="img-fluid" >
+                            <img src="assets/images/icons/heart.png" class="img-fluid" (click)="addToWishlist(productinfo)">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </ng-template>
     </div>
 </div>
 <!-- recommendation for you start -->

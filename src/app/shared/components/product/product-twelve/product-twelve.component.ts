@@ -88,6 +88,10 @@ export class ProductTwelveComponent implements OnInit {
     }
 
     isInWishlist() {
+        if(this.product){
         return this.wishlistService.isInWishlist(this.product);
+    }else{
+        return false;
+    }
     }
 }
