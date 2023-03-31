@@ -204,15 +204,15 @@
             <img src="assets/images/icons/fire.png">
         </div>
         <div class="change-tab">
-            <ul>
-                <li><a href="#" class="active">HDD</a></li>
-                <li><a href="#">LAPTOP RAM</a></li>
-                <li><a href="#">GEONIX SSD</a></li>
-                <li><a href="#">LAPTOP HHD</a></li>
+            <ul class="nav nav-pills nav-border-anim justify-content-center" role="tablist" tabClick>
+                <li><a href="javascript:;" role="tab" (click)="trendingproduct('HDD – Hard Disk Drive')" class="active">HDD</a></li>
+                <li><a href="javascript:;" role="tab" (click)="trendingproduct('Laptop RAM')">LAPTOP RAM</a></li>
+                <li><a href="javascript:;" role="tab" (click)="trendingproduct('Geonix SSD')">GEONIX SSD</a></li>
+                <li><a href="javascript:;" role="tab" (click)="trendingproduct('Laptop HDD')">LAPTOP HHD</a></li>
             </ul>
         </div>
-        <div class="row justify-content-center py-3 py-5" *ngIf="products" [products]="products" [loaded]="loaded">
-            <div class="col-md-4 col-sm-6 col-lg-3" *ngFor="let productinfo of products | slice: 0 : 4">
+        <div class="row justify-content-center py-3 py-5">
+            <div class="col-md-4 col-sm-6 col-lg-3" *ngFor="let productinfo of trendingproducts | slice: 0 : 4">
                 <div class="product-card">
                     <div class="product-card-image">
                         <a [routerLink]="['/product/'+productinfo.category.name+'/'+ productinfo.name]">

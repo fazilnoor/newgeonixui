@@ -82,6 +82,21 @@
         background-image: url('https://cdn.shopify.com/s/files/1/0641/2907/3385/files/Crusher_main_banner_2160_X_1080.jpg?v=1673069379&width=2000');
         background-size: cover;
     }
+
+    // .one {
+    //     background-image: url('/assets/images/banners/MOTHERBANNER.jpg');
+    //     background-size: cover;
+    // }
+
+    // .two {
+    //     background-image: url('/assets/images/banners/GRAPHIC\ CARD.jpg');
+    //     background-size: cover;
+    // }
+
+    // .three {
+    //     background-image: url('/assets/images/banners/HDD\ BANNER\ \(1\).jpg');
+    //     background-size: cover;
+    // }
 }
 
 // shop by category slider
@@ -189,6 +204,7 @@
                     font-family: 'Maven Pro', sans-serif;
                     border-bottom: 2px solid lightgray;
                     font-size: 16px;
+                    cursor: pointer;
                 }
 
                 a.active {

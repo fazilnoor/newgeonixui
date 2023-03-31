@@ -40,7 +40,9 @@ export class Index2Component implements OnInit {
 	introSlider = introSlider;
 	brandSlider = brandSlider;
 	testiSlider = testiSlider;
-	topsellingproductsdata: any []
+	topsellingproductsdata: any [];
+	trending: any;
+	trendingproducts: any [];
 	wishlistvar:boolean = false
 	loader: boolean = false;
 
@@ -66,6 +68,7 @@ export class Index2Component implements OnInit {
 		this.getlist()
 		this.getproduct()
 		this.topsellingproducts('Geonix SSD')
+		this.trendingproduct('HDD – Hard Disk Drive')
 	}
 
 	offerList() {
@@ -135,6 +138,8 @@ export class Index2Component implements OnInit {
 			this.products = res['data'];
 			console.log("this.productssss");
 			console.log('this is console for index two new arrival', this.products);
+			this.topsellingproductsdata = this.products.filter(element => element.category.name == 'Geonix SSD');
+			this.trendingproducts = this.products.filter(element => element.category.name == 'HDD – Hard Disk Drive')
 			this.loaded = true;
 		})
 	}
@@ -242,6 +247,14 @@ export class Index2Component implements OnInit {
 		this.topsellingproductsdata = this.products.filter(element => element.category.name == this.topselling)
 		console.log(this.products)
 		console.log('console filter data top selling products' ,this.topsellingproductsdata)
+	}
+
+	trendingproduct(event: string) {
+		this.trending = event
+		console.log('try console my tab function', this.trending);
+		this.trendingproducts = this.products.filter(element => element.category.name == this.trending)
+		console.log(this.products)
+		console.log('console filter data top selling products' ,this.trendingproducts)
 	}
 	
 }
